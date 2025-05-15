@@ -28,8 +28,7 @@ export function middleware(req: NextRequest) {
     ) {
         const protocol = req.headers.get('x-forwarded-proto') || 'http';
         const redirectUrl = `${protocol}://${mainDomain}/${subdomain}${path}`;
-        console.log(`🚀 FULL REDIRECT to: ${redirectUrl}`);
-        return NextResponse.redirect(redirectUrl); // 👈 FULL string-based URL
+        return NextResponse.redirect(redirectUrl);
     }
 
     return NextResponse.next();
